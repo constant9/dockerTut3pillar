@@ -1,7 +1,7 @@
-package dal;
+package boot.dal;
 
 
-import model.Employee;
+import boot.model.Employee;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface EmployeeRepository extends

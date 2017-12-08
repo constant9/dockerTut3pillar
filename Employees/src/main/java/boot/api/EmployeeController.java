@@ -1,12 +1,10 @@
-package api;
+package boot.api;
 
-import dal.EmployeeRepository;
-import model.Employee;
+import boot.dal.EmployeeRepository;
+import boot.model.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/employee")
@@ -24,9 +22,8 @@ public class EmployeeController {
 
     @RequestMapping(method = RequestMethod.GET, value="/{employeeId}")
     public Employee get(@PathVariable String employeeId){
-        Optional<Employee> optional = employeeRepository.findOne(Example.of(new Employee().setId(employeeId)));
-        return optional.get();
+        Employee optional = employeeRepository.findOne(Example.of(new Employee().setId(employeeId)));
+        return optional;
     }
-
 
 }
